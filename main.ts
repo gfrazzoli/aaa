@@ -1,9 +1,13 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     game.over(true)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    mySprite.destroy()
+})
+let mySprite: Sprite = null
 game.showLongText("Vous êtes Rémi, rat parisien qui vient au secours des démunis", DialogLayout.Center)
 game.showLongText("Trouvez tous les légumes avant la fin du temps imparti, puis parvenez à sortir des égouts !", DialogLayout.Center)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     ....................
     ....................
     ....................
@@ -119,4 +123,6 @@ controller.moveSprite(mySprite, 100, 100)
 tiles.setTilemap(tilemap`niveau2`)
 scene.cameraFollowSprite(mySprite)
 tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
+tiles.placeOnRandomTile(oignon, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(tomate, sprites.dungeon.floorLight0)
 info.startCountdown(100)
