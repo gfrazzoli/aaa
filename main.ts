@@ -1,3 +1,12 @@
+function playTune (bpm: number) {
+    while (true) {
+        music.playMelody("C F F G G C5 A F ", bpm)
+        music.playMelody("A D D G E F F - ", bpm)
+        music.playMelody("F G A G A F G G ", bpm)
+        music.playMelody("G G A G B G A A ", bpm)
+        music.playMelody("C5 A F C5 A F C C ", bpm)
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     game.over(true)
 })
@@ -37,7 +46,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.hearts, 500)
+    otherSprite.destroy(effects.spray, 500)
+    music.playTone(880, music.beat(BeatFraction.Eighth))
+    music.playTone(784, music.beat(BeatFraction.Eighth))
 })
 let projectile: Sprite = null
 let pVy = 0
@@ -237,11 +248,181 @@ let myEnemy5 = sprites.create(img`
     . f d f f f d f f d f . . . 
     . f f . . f f . . f f . . . 
     `, SpriteKind.Enemy)
+let myEnemy6 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy7 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy8 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy9 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy10 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy11 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy12 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy13 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy14 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
+let myEnemy15 = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Enemy)
 myEnemy.follow(mySprite, 30)
 myEnemy2.follow(mySprite, 30)
 myEnemy3.follow(mySprite, 30)
 myEnemy4.follow(mySprite, 30)
 myEnemy5.follow(mySprite, 30)
+myEnemy6.follow(mySprite, 30)
+myEnemy7.follow(mySprite, 30)
+myEnemy8.follow(mySprite, 30)
+myEnemy9.follow(mySprite, 30)
+myEnemy10.follow(mySprite, 30)
+myEnemy11.follow(mySprite, 30)
+myEnemy12.follow(mySprite, 30)
+myEnemy14.follow(mySprite, 30)
+myEnemy13.follow(mySprite, 30)
+myEnemy15.follow(mySprite, 30)
 info.setScore(0)
 info.setLife(3)
 controller.moveSprite(mySprite, 100, 100)
@@ -258,4 +439,15 @@ tiles.placeOnRandomTile(myEnemy2, sprites.dungeon.floorLight0)
 tiles.placeOnRandomTile(myEnemy3, sprites.dungeon.floorLight0)
 tiles.placeOnRandomTile(myEnemy5, sprites.dungeon.floorLight0)
 tiles.placeOnRandomTile(myEnemy4, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy6, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy7, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy8, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy9, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy10, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy11, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy12, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy13, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy14, sprites.dungeon.floorLight0)
+tiles.placeOnRandomTile(myEnemy15, sprites.dungeon.floorLight0)
 info.startCountdown(100)
+playTune(120)
