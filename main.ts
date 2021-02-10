@@ -1,5 +1,4 @@
 let mySprite: Sprite = null
-game.showLongText("Bienvenue dans les égouts", DialogLayout.Bottom)
 scene.cameraFollowSprite(mySprite)
 scene.setBackgroundColor(1)
 mySprite = sprites.create(img`
