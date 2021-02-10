@@ -1,7 +1,8 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     game.over(true)
 })
-game.showLongText("Trouvez tous les légumes avant la fin du temps imparti", DialogLayout.Full)
+game.showLongText("Vous êtes Rémi, rat parisien qui vient au secours des démunis", DialogLayout.Center)
+game.showLongText("Trouvez tous les légumes avant la fin du temps imparti, puis parvenez à sortir des égouts !", DialogLayout.Center)
 let mySprite = sprites.create(img`
     ....................
     ....................
